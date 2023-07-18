@@ -20,7 +20,7 @@ function NewsContainer() {
     }
 
     const getStories = function() {
-        const slicedIds = storyIds.slice(0, 10);
+        const slicedIds = storyIds.slice(0, 20);
         const storyPromises = slicedIds.map((id) => {
             return (
                 fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
@@ -38,7 +38,7 @@ function NewsContainer() {
         <>
             <h1>Hacker News</h1>
             <h2>Top Stories:</h2>
-            <StoriesList />
+            <StoriesList stories={stories} />
         </>
     );
 };

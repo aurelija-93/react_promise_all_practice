@@ -1,12 +1,12 @@
 import React from "react";
 
-function StoryDetail() {
+function StoryDetail({story}) {
     return (
-        <>
-            <h4>This is StoryDetail</h4>
-            <h4>This is StoryDetail</h4>
-            <h4>This is StoryDetail</h4>
-        </>
+        <li>
+            <h4>{story.title}</h4>
+            <h5>Author: {story.by}</h5>
+            <a href={story.url}>{story.url}</a>
+        </li>
     );
 };
 
