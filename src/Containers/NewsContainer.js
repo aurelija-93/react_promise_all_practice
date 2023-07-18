@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import StoriesList from "../Components/StoriesList";
+import Search from "../Components/Search";
 
 function NewsContainer() {
     const [storyIds, setStoryIds] = useState([]);
@@ -34,10 +35,20 @@ function NewsContainer() {
             })
     };
 
+    const handleSearchSubmit = function(searchPhrase) {
+        const storiesCopy = [...stories]
+        const filteredStories = storiesCopy.filter((story) => {
+            const formattedTitle = story.title.toLowerCase();
+            return formattedTitle.includes(searchPhrase);
+        });
+        setStories(filteredStories);
+    }
+
     return (
         <>
             <h1>Hacker News</h1>
             <h2>Top Stories:</h2>
+            <Search handleSearchSubmit={handleSearchSubmit} />
             <StoriesList stories={stories} />
         </>
     );
