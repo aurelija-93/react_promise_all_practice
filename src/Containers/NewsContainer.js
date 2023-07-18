@@ -5,7 +5,7 @@ import Search from "../Components/Search";
 function NewsContainer() {
     const [storyIds, setStoryIds] = useState([]);
     const [stories, setStories] = useState([]);
-    const [filteredStories, setFilteredStories] = useState([]);
+    const [filteredStories, setFilteredStories] = useState(null);
 
     useEffect(() => {
         getStoryIds();
@@ -49,8 +49,8 @@ function NewsContainer() {
         <>
             <h1>Hacker News</h1>
             <Search handleSearchSubmit={handleSearchSubmit} />
-            {filteredStories.length > 0 ? <h2>Search results:</h2> : <h2>Top Stories:</h2>}
-            {filteredStories.length > 0 ? <StoriesList stories={filteredStories} /> : <StoriesList stories={stories} />}
+            {filteredStories ? <h2>Search results:</h2> : <h2>Top stories:</h2>}
+            {filteredStories ? <StoriesList stories={filteredStories} /> : <StoriesList stories={stories} />}
         </>
     );
 };
