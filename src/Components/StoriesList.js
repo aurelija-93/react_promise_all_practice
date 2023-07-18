@@ -10,7 +10,6 @@ function StoriesList({stories}) {
 
     return (
         <>
-            <h3>This is StoriesList</h3>
             <ul>
                 {storyItems}
             </ul>
